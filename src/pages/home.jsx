@@ -1,18 +1,26 @@
-import React, {Fragment} from 'react';
-import Form from '../components/form'
-import Notes from '../components/notes'
+import React, { Fragment, useContext, useEffect } from "react";
+import Form from "../components/form";
+import Users from "../components/users";
+import { FirebaseContext } from "../context/firebase/firebaseContext";
+import Loader from "../components/loader";
 const Home = () => {
-    const users = new Array(3).fill('').map((_,i)=>({id:i,title:`user ${i+1}`}))
-
-
-    return (
-        <Fragment>
-           <h1>Main page</h1>   
-           <Form/>
-        <hr className="my-5"/>
-           <Notes users={users}/>
-        </Fragment>
-    );
-}
+  const { loading, users, fetchUsers } = useContext(FirebaseContext);
+   useEffect(() => {
+    fetchUsers();
+  }, []);
+  return (
+    <Fragment>
+      <h1>Main page</h1>
+      <Form />
+      <hr className="my-5" />
+      {loading ?  
+        <Loader />
+        :  
+        users.length === 0 ? <div className="alert alert-warning">юзверей нет</div> :
+        <Users users={users} />
+       }
+    </Fragment>
+  );
+};
 
 export default Home;
