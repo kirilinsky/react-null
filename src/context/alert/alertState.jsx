@@ -6,10 +6,10 @@ import { HIDE_ALERT, SHOW_ALERT } from "../types";
 export const AlertState = ({ children }) => {
   const [state, dispatch] = useReducer(AlertReducer, { visible: false });
 
-  const show = (text, type = "warning") => {
+  const show = (duration,text, type = "warning") => {
     dispatch({
       type: SHOW_ALERT,
-      payload: { text, type },
+      payload: {duration, text, type },
     });
   };
   const hide = () => {

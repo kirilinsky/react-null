@@ -14,14 +14,14 @@ const Form = () => {
     if (value.trim()) {
       firebase
         .addUser(value.trim())
-        .then(() => alert.show(`ты добавил ${value}`, "success"))
+        .then(() => alert.show(6,`ты добавил ${value}`, "success"))
         .catch(err=>{
-          alert.show(`ошибка ${err}`, "danger");
+          alert.show(6,`ошибка ${err}`, "danger");
         })
 
       setValue("");
     } else {
-      alert.show("пусто чет", "danger");
+      alert.show(6,"пусто чет", "danger");
     }
   };
   return (

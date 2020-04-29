@@ -24,3 +24,45 @@ code {
     margin-right: 15px;
   } 
 }
+.prog{
+  width: 100%;
+  height: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.prog-bar{
+  height: 5px;
+  border-radius: 0 4px 0 0;
+  opacity: 0.8;
+  transition: linear 1s;
+  background: linear-gradient(20deg,magenta,rgb(202, 21, 21),violet);
+}
+
+// alert animation
+.container{
+  transition: linear .4s;
+}
+.alert.withered{
+  position: fixed;
+  bottom: 5%;
+  left:0;
+  right:0;
+  width: 90%;
+  margin: 0 auto;
+}
+.alert-enter{
+  opacity: 0;
+}
+.alert-enter-active{
+  opacity: 0.9;
+  transition: ease-in .5s;
+}
+
+.alert-exit-active{
+  opacity: 0;
+  transition: ease-out .35s;
+}
